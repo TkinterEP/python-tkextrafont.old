@@ -69,6 +69,11 @@ def chdir(target):
         os.chdir(current)
 
 
+def get_file_directory():
+    """Return an absolute path to the directory that contains this file"""
+    return os.path.dirname(os.path.abspath(__file__))
+
+
 def load_extrafont(window):
     # type: (tk.Tk) -> None
     """Load extrafont into a tk interpreter and provide functions"""
@@ -93,7 +98,8 @@ def load_extrafont(window):
         # type: (str) -> bool
         return window.tk.call("extrafont::isAvailable", font_name)
 
-    window.tk.eval("source pkgIndex.tcl")
+    with chdir(get_file_directory()):
+        window.tk.eval("source pkgIndex.tcl")
     window.tk.call("package", "require", "extrafont")
     window.load_font = load_font
     window.is_font_available = is_font_available
