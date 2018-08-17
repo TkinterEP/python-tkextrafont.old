@@ -24,7 +24,10 @@ except ImportError:  # Python 2
 # Standard Library
 from contextlib import contextmanager
 import os
-from typing import Dict, List, Tuple
+from typing import Dict, List
+
+
+_FILE_DIR = os.path.abspath(__file__)
 
 
 def _tk_dict_to_dict(d):
@@ -71,7 +74,7 @@ def chdir(target):
 
 def get_file_directory():
     """Return an absolute path to the directory that contains this file"""
-    return os.path.dirname(os.path.abspath(__file__))
+    return os.path.dirname(_FILE_DIR)
 
 
 def load_extrafont(window):

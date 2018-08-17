@@ -15,7 +15,7 @@ def read(file_name):
 setup(
     name="tkextrafont",
     packages=["tkextrafont"],
-    package_data={"tkextrafont": ["*.tcl", "*.so", "*.dll"]},
+    package_data={"tkextrafont": ["*.tcl", "*.so", "*.dll", "*/*"]},
     version="0.0.1",
     description="A Python wrapper to load the Tcl library extrafont into a Tk interpreter",
     author="RedFantom",
