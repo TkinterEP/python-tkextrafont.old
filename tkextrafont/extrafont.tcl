@@ -116,8 +116,11 @@ proc extrafont::load {fontfile} {
 	}
 	set FamList {}
 	foreach fontInfo $fontsInfo {
-		set family [dict get $fontInfo "fontFamily"]
-		set fullname [dict get $fontInfo "fullName"]
+	    if { [lsearch -exact [dict keys $fontInfo] "fontFamily"] < 0 } {
+	        error "Failed to read font file"
+	    }
+        set family [dict get $fontInfo "fontFamily"]
+        set fullname [dict get $fontInfo "fullName"]
 		set _FFFD_Table($orig_fontfile,$family,$fullname) $fontInfo
 		lappend FamList $family
 	}
