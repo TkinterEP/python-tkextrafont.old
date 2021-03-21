@@ -1,3 +1,8 @@
+## Deprecation Notice
+This repository has been retired. Please see 
+[TkinterEP/python-tkextrafont](https://github.com/TkinterEP/python-tkextrafont)
+for an active version of this project.
+
 # TkExtrafont
 Python wrapper around the `extrafont` Tcl library
 
